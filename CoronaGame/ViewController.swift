@@ -224,15 +224,15 @@ class ViewController: UIViewController {
              action = "Awesome!"
          } else if risk >= 11 && risk <= 30 {
              // medium
-             action = "A bit high."
+             action = "A bit high. You will probably get COVID"
          } else {
              // high
-            action = "Go to less places."
+            action = "You will definitely get COVID. Go to less places."
          }
         
         
         let alert = UIAlertController(title: "Risk:",
-                                      message: "Your risk level is \(risk). \n\(action) \n To wash your hands, shake the device!",
+                                      message: "Your risk level is \(risk). \n\(action) \n To simulate washing your hands, shake the device!",
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             self.shakeAlertInDisplay = false
@@ -286,7 +286,7 @@ class ViewController: UIViewController {
             if risk > 0 && !shakeAlertInDisplay {
                 self.risk -= 1
                 updateriskLabel()
-                let alert = UIAlertController(title: "Great Job!", message: "You washed your hands! \n Your risk level is now \(risk).", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Great Job!", message: "You simulated washing your hands! \n Your risk level is now \(risk).", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Great!", style: .default, handler: { action in
                     self.shakeAlertInDisplay = false
                 }))
@@ -300,7 +300,7 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let alert = UIAlertController(title: "Instructions:", message: "Choose where you want to go today! \n Shake the device to wash your hands!", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Instructions:", message: "Choose where you want to go today! \n Shake the device to simulate washing your hands!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK, Start game", style: .default, handler: nil))
 
         self.present(alert, animated: true, completion: nil)
